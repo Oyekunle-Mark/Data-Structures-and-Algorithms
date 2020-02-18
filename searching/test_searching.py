@@ -1,6 +1,7 @@
 import unittest
 from linear_search import linear_search
 from binary_search import binary_search
+from binary_search_recursive import binary_search_recursive
 
 
 class SearchingTests(unittest.TestCase):
