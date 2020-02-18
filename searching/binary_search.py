@@ -1,6 +1,7 @@
 def binary_search(arr, target):
-    """Binary search string
+    """Binary search
     """
+
     low = 0
     high = len(arr) - 1
 
