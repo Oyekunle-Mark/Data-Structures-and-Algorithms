@@ -13,12 +13,20 @@ def merge(arrA, arrB):
             index_b += 1
             index += 1
 
-    merged_arr += arrA
-    merged_arr += arrB
+    while index_a < len(arrA):
+        merged_arr[index] = arrA[index_a]
+        index_a += 1
+        index += 1
 
+    while index_b < len(arrB):
+        merged_arr[index] = arrB[index_b]
+        index_b += 1
+        index += 1
+
+    return merged_arr
 
 def merge_sort(arr):
-    if len(arr) == 1:
+    if len(arr) <= 1:
         return arr
 
     midpoint = len(arr) // 2
