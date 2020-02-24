@@ -1,3 +1,8 @@
+"""
+The classic English Ruler problem. The function draw_ruler takes the
+numbers of inches to be drawn and the tick_length of the ruler
+"""
+
 def draw_line(tick_length, label=''):
     line = '-' * tick_length
 
