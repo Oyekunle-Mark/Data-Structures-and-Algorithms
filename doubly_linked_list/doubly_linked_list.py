@@ -161,7 +161,13 @@ class DoublyLinkedList:
     the node was the head or the tail"""
 
     def delete(self, node):
-        pass
+        if node == self.head:
+            self.remove_from_head()
+        elif node == self.tail:
+            self.remove_from_tail()
+        else:
+            node.delete()
+            self.length -= 1
 
     """Returns the highest value currently in the list"""
 
