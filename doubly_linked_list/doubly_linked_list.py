@@ -65,6 +65,8 @@ class DoublyLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
+
+        self.length += 1
             
 
     """Removes the List's current head node, making the
