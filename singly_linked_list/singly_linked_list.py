@@ -3,21 +3,23 @@ class ListNode:
     """
 
     def __init__(self, value, next=None):
-        pass
+        self.value = value
+        self.next = next
 
     def get_value(self):
-        pass
+        return self.value
 
     def get_next(self):
-        pass
+        return self.next
 
-    def set_next(self):
-        pass
+    def set_next(self, next):
+        self.next = next
 
 
 class LinkedList:
     """The linked list class
     """
+
     def __init__(self):
         pass
 
