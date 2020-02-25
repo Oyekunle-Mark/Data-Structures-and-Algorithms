@@ -69,13 +69,27 @@ class LinkedList:
         current_node = self.head
 
         while current_node:
-            nodes.append(current_node.get_value())
+            nodes.append(str(current_node.get_value()))
             current_node = current_node.get_next()
 
         print("->".join(nodes))
 
 
 ll = LinkedList()
+
 ll.add_to_tail(1)
 ll.add_to_tail(2)
 ll.add_to_tail(3)
+ll.add_to_tail(4)
+ll.add_to_tail(5)
+
+ll.print_nodes()
+
+ll.remove_head()
+ll.remove_head()
+
+print(ll.contains(2))
+
+ll.add_to_tail(12)
+
+ll.print_nodes()
