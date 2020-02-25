@@ -11,7 +11,9 @@ class Stack:
         self.size += 1
 
     def pop(self):
-        pass
+        if self.size:
+            self.size -= 1
+            return self.storage.remove_from_head()
 
     def len(self):
         pass
