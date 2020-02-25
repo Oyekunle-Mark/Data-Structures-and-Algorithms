@@ -60,6 +60,20 @@ class LinkedList:
 
         return False
 
+    def print_nodes(self):
+        if not self.head:
+            print("Empty")
+
+        nodes = []
+
+        current_node = self.head
+
+        while current_node:
+            nodes.append(current_node.get_value())
+            current_node = current_node.get_next()
+
+        print("->".join(nodes))
+
 
 ll = LinkedList()
 ll.add_to_tail(1)
