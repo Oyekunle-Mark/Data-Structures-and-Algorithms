@@ -39,10 +39,10 @@ class LinkedList:
 
         removed_value = self.head.get_value()
 
-        if not self.head.next():
+        if not self.head.get_next():
             self.head = self.tail = None
         else:
-            self.head = self.head.next
+            self.head = self.head.get_next()
 
         return removed_value
 
