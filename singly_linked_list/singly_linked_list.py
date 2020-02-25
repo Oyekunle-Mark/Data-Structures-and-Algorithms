@@ -21,7 +21,8 @@ class LinkedList:
     """
 
     def __init__(self):
-        pass
+        self.head = None
+        self.tail = None
 
     def add_to_tail(self, value):
         pass
