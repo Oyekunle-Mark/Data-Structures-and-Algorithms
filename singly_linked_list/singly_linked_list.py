@@ -59,3 +59,9 @@ class LinkedList:
             current_node = current_node.get_next()
 
         return False
+
+
+ll = LinkedList()
+ll.add_to_tail(1)
+ll.add_to_tail(2)
+ll.add_to_tail(3)
