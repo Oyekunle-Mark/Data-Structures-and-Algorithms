@@ -24,7 +24,11 @@ class LRUCache:
     """
 
     def get(self, key):
-        pass
+        if key in self.storage:
+            node = self.storage[key]
+            self.queue.move_to_front(node)
+
+            return node.value
 
     """
     Adds the given key-value pair to the cache. The newly-
