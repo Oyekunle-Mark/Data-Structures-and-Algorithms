@@ -8,7 +8,10 @@ class LRUCache:
     """
 
     def __init__(self, limit=10):
-        pass
+        self.limit = limit
+        self.size = 0
+        self.storage = {}
+        self.order = DoublyLinkedList()
 
     """
     Retrieves the value associated with the given key. Also
