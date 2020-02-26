@@ -13,7 +13,7 @@ class LRUCache:
         self.limit = limit
         self.size = 0
         self.storage = {}
-        self.order = DoublyLinkedList()
+        self.queue = DoublyLinkedList()
 
     """
     Retrieves the value associated with the given key. Also
