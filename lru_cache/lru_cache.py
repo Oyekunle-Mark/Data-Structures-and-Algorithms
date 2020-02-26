@@ -28,7 +28,20 @@ class LRUCache:
     """
 
     def set(self, key, value):
-        pass
+        new_node = ListNode((key, value))
+
+        if self.size == self.limit:
+            removed_item = self.queue.remove_from_tail()
+            self.size -= 1
+            del self.storage[removed_item[0]]
+
+        if key in self.storage:
+            self.storage[key] = new_node
+            self.queue.move_to_front(new_node)
+        else:
+            self.storage[key] = new_node
+            self.queue.add_to_head((key, value))
+            self.size += 1
 
     """
     Retrieves the value associated with the given key. Also
