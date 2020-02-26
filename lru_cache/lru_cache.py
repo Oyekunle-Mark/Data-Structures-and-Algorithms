@@ -13,8 +13,31 @@ class LRUCache:
     def __init__(self, limit=10):
         self.limit = limit
         self.size = 0
-        self.storage = {}
-        self.queue = DoublyLinkedList()
+        self.order = DoublyLinkedList()
+        self.storage = dict()
+
+    """
+    Retrieves the value associated with the given key. Also
+    needs to move the key-value pair to the end of the order
+    such that the pair is considered most-recently used.
+    Returns the value associated with the key or None if the
+    key-value pair doesn't exist in the cache.
+    """
+
+    def get(self, key):
+        # if the key exists in the storage
+        if key in self.storage:
+            # extract the node from storage at the key
+            # => memory address of a ref to the actual node in the DLL
+            node = self.storage[key]
+            # move the node to end of order
+            self.order.move_to_end(node)
+            # return the value of the value of the node
+            return node.value[1]  # => (n, 4)[1] => 4
+        # otherwise
+        else:
+            # return None
+            return None
 
     """
     Adds the given key-value pair to the cache. The newly-
@@ -28,28 +51,31 @@ class LRUCache:
     """
 
     def set(self, key, value):
-        new_node = ListNode((key, value))
-
-        if self.size == self.limit:
-            removed_item = self.queue.remove_from_tail()
-            self.size -= 1
-            del self.storage[removed_item[0]]
-
+        # if the key exists in the storage (1)
         if key in self.storage:
-            self.storage[key] = new_node
-            self.queue.move_to_front(new_node)
-        else:
-            self.storage[key] = new_node
-            self.queue.add_to_head((key, value))
-            self.size += 1
+            # extract the node from the storage
+            node = self.storage[key]
+            # set the nodes value to the key value pair
+            node.value = (key, value)
 
-    """
-    Retrieves the value associated with the given key. Also
-    needs to move the key-value pair to the end of the order
-    such that the pair is considered most-recently used.
-    Returns the value associated with the key or None if the
-    key-value pair doesn't exist in the cache.
-    """
+            # call move to end on the order
+            self.order.move_to_end(node)
+            # return from the set method
+            return
 
-    def get(self, key):
-        pass
+        # if the size is the same as the limit (2)
+        if self.size == self.limit:
+            # delete the storage at the heads value key
+            del self.storage[self.order.head.value[0]]  # del dict1[name]
+            # call remove from head on the order
+            self.order.remove_from_head()
+            # decrement size
+            self.size -= 1
+
+        # if both cases are false (does not run if (1) is true
+        # call add to tail on the order passing in the key value pair
+        self.order.add_to_tail((key, value))
+        # set the storage at the index of the key to the orders tail
+        self.storage[key] = self.order.tail
+        # increment the size
+        self.size += 1
