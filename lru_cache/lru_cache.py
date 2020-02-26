@@ -1,5 +1,6 @@
 from doubly_linked_list import ListNode, DoublyLinkedList
 
+
 class LRUCache:
     """
     Our LRUCache class keeps track of the max number of nodes it
@@ -42,4 +43,16 @@ class LRUCache:
     """
 
     def set(self, key, value):
-        pass
+        if key in self.storage:
+            old_node = self.storage[key]
+            new_node = ListNode(value)
+            self.storage[key] = new_node
+            self.queue.delete(old_node)
+            self.queue.add_to_head(new_node)
+        else:
+            new_node = ListNode(value)
+            self.queue.add_to_head(new_node)
+            self.size += 1
+
+        if self.size == self.limit:
+            self.queue.remove_from_tail()
