@@ -59,7 +59,7 @@ class BinarySearchTree:
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
         if node is None:
-            return None
+            return
 
         self.in_order_print(node.left)
         print(node.value)
