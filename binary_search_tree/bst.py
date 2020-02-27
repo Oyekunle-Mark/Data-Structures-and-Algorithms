@@ -29,10 +29,10 @@ class BinarySearchTree:
 
         if target < self.value:
             if self.left is not None:
-                self.left.contains(target)
+                return self.left.contains(target)
         else:
             if self.right is not None:
-                self.right.contains(target)
+                return self.right.contains(target)
 
         return False
 
