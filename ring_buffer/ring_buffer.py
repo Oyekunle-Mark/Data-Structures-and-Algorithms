@@ -59,4 +59,10 @@ class ArrayRingBuffer:
             self.position = 0
 
     def get(self):
-        pass
+        list_buffer_contents = []
+
+        for item in self.storage:
+            if item is not None:
+                list_buffer_contents.append(item)
+
+        return list_buffer_contents
