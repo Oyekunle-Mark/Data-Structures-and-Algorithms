@@ -9,15 +9,24 @@ class RingBuffer:
 
     def append(self, item):
         # if the length of the DoublyLinkedList/dll is less than the capacity
+        if self.storage.length < self.capacity:
             # add the item to the tail
+            self.storage.add_to_tail(item)
             # set the current to the tail of the dll
+            self.current = self.storage.tail
         # if the length of the dll is equivalent to the capacity of the buffer
-            # if the current node is the tail of the dll
+        if self.storage.length == self.current:
+           # if the current node is the tail of the dll
+            if self.current == self.storage.tail:
                 # set the current to the head of the dll
+                self.current = self.storage.head
             # otherwise,
+            else:
                 # set the current to the next node after it
+                self.current = self.current.next
 
             # set the value of current to the item
+            self.current.value = item
 
     def get(self):
         # Note:  This is the only [] allowed
