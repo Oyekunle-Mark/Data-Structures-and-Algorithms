@@ -32,7 +32,10 @@ class RingBuffer:
         # Note:  This is the only [] allowed
         list_buffer_contents = []
 
-        # TODO: Your code here
+        # set the current_node to the head of the dll
+        # loop while there is a current_node
+            # append the value of the current node to the list
+            # set the current node to the next node
 
         return list_buffer_contents
 
