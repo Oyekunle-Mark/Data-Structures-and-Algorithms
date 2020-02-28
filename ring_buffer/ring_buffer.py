@@ -52,7 +52,11 @@ class ArrayRingBuffer:
         self.storage = [None] * capacity
 
     def append(self, item):
-        pass
+        self.storage[self.position] = item
+        self.position += 1
+
+        if self.position == self.capacity:
+            self.position = 0
 
     def get(self):
         pass
