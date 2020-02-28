@@ -1,2 +1,3 @@
-# tangled-mystery
+# Data Structures and Algorithms
+
 Algorithms and Data Structures Implementation.
