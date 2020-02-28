@@ -33,9 +33,13 @@ class RingBuffer:
         list_buffer_contents = []
 
         # set the current_node to the head of the dll
+        current_node = self.storage.head
         # loop while there is a current_node
+        while current_node:
             # append the value of the current node to the list
+            list_buffer_contents.append(current_node.value)
             # set the current node to the next node
+            current_node = current_node.next
 
         return list_buffer_contents
 
