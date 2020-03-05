@@ -1,3 +1,3 @@
 # Data Structures and Algorithms
 
-Algorithms and Data Structures Implementation.
+Popular Algorithms and Data Structures Implementation.
