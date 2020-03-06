@@ -15,6 +15,7 @@ class ListNode:
     def insert_after(self, value):
         current_next = self.next
         self.next = ListNode(value, self, current_next)
+
         if current_next:
             current_next.prev = self.next
 
@@ -25,6 +26,7 @@ class ListNode:
     def insert_before(self, value):
         current_prev = self.prev
         self.prev = ListNode(value, current_prev, self)
+
         if current_prev:
             current_prev.next = self.prev
 
@@ -34,6 +36,7 @@ class ListNode:
     def delete(self):
         if self.prev:
             self.prev.next = self.next
+
         if self.next:
             self.next.prev = self.prev
 
@@ -77,7 +80,7 @@ class DoublyLinkedList:
 
         removed_node_value = self.head.value
 
-        if self.head == self.tail:
+        if self.head is self.tail:
             self.head = self.tail = None
         else:
             removed_node = self.head
@@ -113,7 +116,7 @@ class DoublyLinkedList:
 
         removed_node_value = self.tail.value
 
-        if self.head == self.tail:
+        if self.head is self.tail:
             self.head = self.tail = None
         else:
             removed_node = self.tail
@@ -132,7 +135,7 @@ class DoublyLinkedList:
 
         node_value = node.value
 
-        if node == self.tail:
+        if node is self.tail:
             self.remove_from_tail()
         else:
             node.delete()
@@ -144,12 +147,12 @@ class DoublyLinkedList:
     List and inserts it as the new tail node of the List."""
 
     def move_to_end(self, node):
-        if node == self.tail:
+        if node is self.tail:
             return
 
         node_value = node.value
 
-        if node == self.head:
+        if node is self.head:
             self.remove_from_head()
         else:
             node.delete()
@@ -161,9 +164,9 @@ class DoublyLinkedList:
     the node was the head or the tail"""
 
     def delete(self, node):
-        if node == self.head:
+        if node is self.head:
             self.remove_from_head()
-        elif node == self.tail:
+        elif node is self.tail:
             self.remove_from_tail()
         else:
             node.delete()

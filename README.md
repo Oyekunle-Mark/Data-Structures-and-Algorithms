@@ -1,3 +1,7 @@
 # Data Structures and Algorithms
 
-Popular Algorithms and Data Structures Implementation.
+Implementations of some popular Algorithms and Data Structures.
+
+## Author
+
+Oyekunle Oloyede
