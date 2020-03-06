@@ -135,7 +135,7 @@ class DoublyLinkedList:
 
         node_value = node.value
 
-        if node == self.tail:
+        if node is self.tail:
             self.remove_from_tail()
         else:
             node.delete()
