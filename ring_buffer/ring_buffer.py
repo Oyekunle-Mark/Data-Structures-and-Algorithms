@@ -21,7 +21,7 @@ class RingBuffer:
             self.current.value = item
 
             # if the current node is the tail of the dll
-            if self.current == self.storage.tail:
+            if self.current is self.storage.tail:
                 # set the current to the head of the dll
                 self.current = self.storage.head
             # otherwise,
