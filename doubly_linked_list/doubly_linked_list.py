@@ -80,7 +80,7 @@ class DoublyLinkedList:
 
         removed_node_value = self.head.value
 
-        if self.head == self.tail:
+        if self.head is self.tail:
             self.head = self.tail = None
         else:
             removed_node = self.head
