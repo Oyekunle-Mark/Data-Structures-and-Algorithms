@@ -1,5 +1,6 @@
 from typing import Iterable
 
+
 def linear_search(arr: Iterable[int], target: int) -> int:
     """Linear search
     """

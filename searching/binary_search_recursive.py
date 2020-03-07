@@ -1,5 +1,6 @@
 from typing import Iterable
 
+
 def binary_search_recursive(arr: Iterable[int], target: int, low: int, high: int) -> int:
     """Recursive binary search
     """
