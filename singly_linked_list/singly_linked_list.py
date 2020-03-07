@@ -21,7 +21,7 @@ class ListNode(Generic[T]):
         self.next = next
 
 
-class LinkedList:
+class LinkedList(Generic[T]):
     """The linked list class
     """
 
@@ -29,7 +29,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def add_to_tail(self, value):
+    def add_to_tail(self, value: T) -> None:
         new_node = ListNode(value)
 
         if not self.head:
@@ -38,7 +38,7 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-    def remove_head(self):
+    def remove_head(self) -> T:
         if not self.head:
             return
 
@@ -51,7 +51,7 @@ class LinkedList:
 
         return removed_value
 
-    def contains(self, value):
+    def contains(self, value: T) -> bool:
         if not self.head:
             return False
 
@@ -65,7 +65,7 @@ class LinkedList:
 
         return False
 
-    def print_nodes(self):
+    def print_nodes(self) -> None:
         if not self.head:
             print("Empty")
 
