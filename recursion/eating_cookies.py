@@ -1,4 +1,10 @@
-def eating_cookies(n, cache=None):
+from typing import Optional, Union, List, Dict
+
+CacheDict = Dict[int, int]
+CacheType = Union[List[int], CacheDict]
+
+
+def eating_cookies(n: int, cache: Optional[CacheType] = None) -> int:
     # a base case if n is less than zero
     if n < 0:
         return 1
