@@ -48,20 +48,20 @@ class RingBuffer(Generic[T]):
         return list_buffer_contents
 
 
-class ArrayRingBuffer:
-    def __init__(self, capacity):
+class ArrayRingBuffer(Generic[T]):
+    def __init__(self, capacity: int):
         self.capacity = capacity
         self.position = 0
         self.storage = [None] * capacity
 
-    def append(self, item):
+    def append(self, item: T) -> None:
         self.storage[self.position] = item
         self.position += 1
 
         if self.position == self.capacity:
             self.position = 0
 
-    def get(self):
+    def get(self) -> List[T]:
         list_buffer_contents = []
 
         for item in self.storage:
