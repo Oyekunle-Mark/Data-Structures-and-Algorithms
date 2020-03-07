@@ -1,13 +1,16 @@
+from typing import TypeVar, Generic, List
 from doubly_linked_list import DoublyLinkedList
 
+T = TypeVar('T')
 
-class RingBuffer:
-    def __init__(self, capacity):
+
+class RingBuffer(Generic[T]):
+    def __init__(self, capacity: int):
         self.capacity = capacity
         self.current = None
         self.storage = DoublyLinkedList()
 
-    def append(self, item):
+    def append(self, item: T) -> None:
         # if the length of the DoublyLinkedList/dll is less than the capacity
         if self.storage.length < self.capacity:
             # add the item to the tail
@@ -29,7 +32,7 @@ class RingBuffer:
                 # set the current to the next node after it
                 self.current = self.current.next
 
-    def get(self):
+    def get(self) -> List[T]:
         # Note:  This is the only [] allowed
         list_buffer_contents = []
 
