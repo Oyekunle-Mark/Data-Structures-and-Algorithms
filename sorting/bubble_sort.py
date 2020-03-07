@@ -1,7 +1,15 @@
-def bubble_sort(arr):
-    for i in range(len(arr)):
-        for j in range(i + 1):
-            if arr[i] < arr[j]:
-                arr[i], arr[j] = arr[j], arr[i]
-    
+from typing import List
+
+
+def bubble_sort(arr: List[int]) -> List[int]:
+    swapped = True
+
+    while swapped:
+        swapped = False
+
+        for i in range(len(arr) - 1):
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
+                swapped = True
+
     return arr

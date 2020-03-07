@@ -1,22 +1,27 @@
-class ListNode:
+from typing import TypeVar, Generic, Optional, Any
+
+T = TypeVar('T')
+
+
+class ListNode(Generic[T]):
     """A single linked list node
     """
 
-    def __init__(self, value, next=None):
+    def __init__(self, value: T, next: Optional[Any] = None) -> None:
         self.value = value
         self.next = next
 
-    def get_value(self):
+    def get_value(self) -> T:
         return self.value
 
-    def get_next(self):
+    def get_next(self) -> Any:
         return self.next
 
-    def set_next(self, next):
+    def set_next(self, next: Any) -> None:
         self.next = next
 
 
-class LinkedList:
+class LinkedList(Generic[T]):
     """The linked list class
     """
 
@@ -24,7 +29,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def add_to_tail(self, value):
+    def add_to_tail(self, value: T) -> None:
         new_node = ListNode(value)
 
         if not self.head:
@@ -33,7 +38,7 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-    def remove_head(self):
+    def remove_head(self) -> T:
         if not self.head:
             return
 
@@ -46,7 +51,7 @@ class LinkedList:
 
         return removed_value
 
-    def contains(self, value):
+    def contains(self, value: T) -> bool:
         if not self.head:
             return False
 
@@ -60,7 +65,7 @@ class LinkedList:
 
         return False
 
-    def print_nodes(self):
+    def print_nodes(self) -> None:
         if not self.head:
             print("Empty")
 
@@ -72,7 +77,7 @@ class LinkedList:
             nodes.append(str(current_node.get_value()))
             current_node = current_node.get_next()
 
-        print("->".join(nodes))
+        print(" -> ".join(nodes))
 
 
 ll = LinkedList()

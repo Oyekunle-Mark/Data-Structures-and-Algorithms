@@ -1,4 +1,7 @@
-def selection_sort(arr):
+from typing import List
+
+
+def selection_sort(arr: List[int]) -> List[int]:
     for i in range(0, len(arr) - 1):
         current_index = i
         smallest_index = i

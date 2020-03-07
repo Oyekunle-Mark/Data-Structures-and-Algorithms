@@ -1,4 +1,7 @@
-def merge(arrA, arrB):
+from typing import List
+
+
+def merge(arrA: List[int], arrB: List[int]) -> List[int]:
     merged_arr = [None] * (len(arrA) + len(arrB))
 
     index = index_a = index_b = 0
@@ -25,7 +28,8 @@ def merge(arrA, arrB):
 
     return merged_arr
 
-def merge_sort(arr):
+
+def merge_sort(arr: List[int]) -> List[int]:
     if len(arr) <= 1:
         return arr
 

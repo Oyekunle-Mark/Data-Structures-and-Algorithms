@@ -1,4 +1,7 @@
-def binary_search(arr, target):
+from typing import Iterable
+
+
+def binary_search(arr: Iterable[int], target: int) -> int:
     """Binary search
     """
 
