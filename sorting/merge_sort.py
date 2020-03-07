@@ -1,6 +1,6 @@
 from typing import List
 
-def merge(arrA, arrB):
+def merge(arrA: List[int], arrB: List[int]) -> List[int]:
     merged_arr = [None] * (len(arrA) + len(arrB))
 
     index = index_a = index_b = 0
