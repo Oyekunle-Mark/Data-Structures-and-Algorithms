@@ -1,4 +1,4 @@
-from typing import TypeVar, Generic, Optional
+from typing import TypeVar, Generic, Optional, Any
 
 T = TypeVar('T')
 
@@ -7,17 +7,17 @@ class ListNode(Generic[T]):
     """A single linked list node
     """
 
-    def __init__(self, value: T, next: Optional[ListNode] = None) -> None:
+    def __init__(self, value: T, next: Optional[Any] = None) -> None:
         self.value = value
         self.next = next
 
     def get_value(self) -> T:
         return self.value
 
-    def get_next(self) -> ListNode:
+    def get_next(self) -> Any:
         return self.next
 
-    def set_next(self, next: ListNode) -> None:
+    def set_next(self, next: Any) -> None:
         self.next = next
 
 
