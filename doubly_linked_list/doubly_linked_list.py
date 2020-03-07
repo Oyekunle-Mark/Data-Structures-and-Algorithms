@@ -7,7 +7,7 @@ class ListNode(Generic[T]):
     """Each ListNode holds a reference to its previous node
     as well as its next node in the List."""
 
-    def __init__(self, value: T, prev: Optional[Any] = None, next: Optional[Any] = None):
+    def __init__(self, value: T, prev: Optional[Any] = None, next: Optional[Any] = None) -> None:
         self.value = value
         self.prev = prev
         self.next = next
@@ -16,7 +16,7 @@ class ListNode(Generic[T]):
     after this node. Note that this node could already
     have a next node it is point to."""
 
-    def insert_after(self, value):
+    def insert_after(self, value: T) -> None:
         current_next = self.next
         self.next = ListNode(value, self, current_next)
 
@@ -27,7 +27,7 @@ class ListNode(Generic[T]):
     before this node. Note that this node could already
     have a previous node it is point to."""
 
-    def insert_before(self, value):
+    def insert_before(self, value: T) -> None:
         current_prev = self.prev
         self.prev = ListNode(value, current_prev, self)
 
@@ -37,7 +37,7 @@ class ListNode(Generic[T]):
     """Rearranges this ListNode's previous and next pointers
     accordingly, effectively deleting this ListNode."""
 
-    def delete(self):
+    def delete(self) -> None:
         if self.prev:
             self.prev.next = self.next
 
