@@ -1,7 +1,11 @@
+from typing import TypeVar, Generic, Dict, Optional, Union
 from doubly_linked_list import DoublyLinkedList
 
+T = TypeVar('T')
+storageDict = Dict[str, T]
 
-class LRUCache:
+
+class LRUCache(Generic[T]):
     """
     Our LRUCache class keeps track of the max number of nodes it
     can hold, the current number of nodes it is holding, a doubly-
@@ -10,11 +14,11 @@ class LRUCache:
     to every node stored in the cache.
     """
 
-    def __init__(self, limit=10):
+    def __init__(self, limit: Optional[int] = 10):
         self.limit = limit
         self.size = 0
         self.order = DoublyLinkedList()
-        self.storage = dict()
+        self.storage: storageDict = dict()
 
     """
     Retrieves the value associated with the given key. Also
@@ -24,7 +28,7 @@ class LRUCache:
     key-value pair doesn't exist in the cache.
     """
 
-    def get(self, key):
+    def get(self, key: str) -> Union[T, None]:
         # if the key exists in the storage
         if key in self.storage:
             # extract the node from storage at the key
@@ -50,7 +54,7 @@ class LRUCache:
     the newly-specified value.
     """
 
-    def set(self, key, value):
+    def set(self, key: str, value: T) -> None:
         # if the key exists in the storage (1)
         if key in self.storage:
             # extract the node from the storage
