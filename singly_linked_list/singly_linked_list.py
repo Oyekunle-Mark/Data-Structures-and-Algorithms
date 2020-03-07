@@ -1,12 +1,13 @@
-from typing import TypeVar, Generic
+from typing import TypeVar, Generic, Optional
 
 T = TypeVar('T')
+
 
 class ListNode(Generic[T]):
     """A single linked list node
     """
 
-    def __init__(self, value: T, next=None) -> None:
+    def __init__(self, value: T, next: Optional[ListNode] = None) -> None:
         self.value = value
         self.next = next
 
