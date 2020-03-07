@@ -1,4 +1,4 @@
-from doubly_linked_list import ListNode, DoublyLinkedList
+from doubly_linked_list import DoublyLinkedList
 
 
 class LRUCache:
