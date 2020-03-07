@@ -77,7 +77,7 @@ class LinkedList(Generic[T]):
             nodes.append(str(current_node.get_value()))
             current_node = current_node.get_next()
 
-        print("->".join(nodes))
+        print(" -> ".join(nodes))
 
 
 ll = LinkedList()
