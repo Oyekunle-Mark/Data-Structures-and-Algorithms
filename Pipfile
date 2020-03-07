@@ -7,7 +7,6 @@ verify_ssl = true
 pylint = "*"
 pep8 = "*"
 autopep8 = "*"
-mypy = "*"
 
 [packages]
 
