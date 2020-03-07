@@ -1,10 +1,13 @@
+from typing import TypeVar, Generic, Optional, Any
+
+T = TypeVar('T')
 
 
-class ListNode:
+class ListNode(Generic[T]):
     """Each ListNode holds a reference to its previous node
     as well as its next node in the List."""
 
-    def __init__(self, value, prev=None, next=None):
+    def __init__(self, value: T, prev: Optional[Any] = None, next: Optional[Any] = None):
         self.value = value
         self.prev = prev
         self.next = next
