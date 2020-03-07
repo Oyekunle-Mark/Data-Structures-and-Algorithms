@@ -5,8 +5,8 @@ def quick_sort(arr: List[int]) -> List[int]:
     if len(arr) <= 1:
         return arr
 
-    pivot = arr[0]
-    arr_without_pivot = arr[1:]
+    pivot = arr[-1]
+    arr_without_pivot = arr[:-1]
 
     left_arr = [item for item in arr_without_pivot if item < pivot]
     right_arr = [item for item in arr_without_pivot if item >= pivot]
