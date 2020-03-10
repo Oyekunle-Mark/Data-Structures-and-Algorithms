@@ -98,7 +98,7 @@ class HashTable:
             # point the tail's next to the new node
             current.next = new_node
 
-    def remove(self, key):
+    def remove(self, key: Any) -> None:
         '''
         Remove the value stored with the given key.
 
