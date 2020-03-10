@@ -95,29 +95,49 @@ class HashTable:
 
         Fill this in.
         '''
+        # get the index
         index = self._hash_mod(key)
 
+        # if there is no item at the index
         if self.storage[index] is None:
+            # print a warning
             print("Key does not exist in the Hash Table")
+            # return
             return
+        # otherwise,
         else:
+            # point current to the head
             current = self.storage[index]
 
+            # if head is the one to be removed
             if current.key == key:
+                # if head does not have a next node
                 if current.next is None:
+                    # set the current index of storage to None
                     self.storage[index] = None
+                    # return
                     return
+                # otherwise,
                 else:
+                    # point the current index of storage to the next item after the head
                     self.storage[index] = current.next
 
+            # loop while current has a next node
             while current.next:
+                # set previous to the current node
                 prev = current
+                # set next to the next node
                 current = current.next
 
+                # if current node's key is equivalent to key
                 if current.key == key:
+                    # if current key is the tail
                     if current.next is None:
+                        # point previous node to None
                         prev.next = None
+                    # otherwise,
                     else:
+                        # point previous node's next to the current node's next
                         prev.next = current.next
 
     def retrieve(self, key):
