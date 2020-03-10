@@ -54,7 +54,7 @@ class HashTable:
         '''
         return self._hash_djb2(key) % self.capacity
 
-    def insert(self, key, value):
+    def insert(self, key: Any, value: Any) -> None:
         '''
         Store the value with the given key.
 
