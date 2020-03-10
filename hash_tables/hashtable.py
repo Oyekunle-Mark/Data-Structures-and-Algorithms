@@ -95,7 +95,30 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+
+        if self.storage[index] is None:
+            print("Key does not exist in the Hash Table")
+            return
+        else:
+            current = self.storage[index]
+
+            if current.key == key:
+                if current.next is None:
+                    self.storage[index] = None
+                    return
+                else:
+                    self.storage[index] = current.next
+
+            while current.next:
+                prev = current
+                current = current.next
+
+                if current.key == key:
+                    if current.next is None:
+                        prev.next = None
+                    else:
+                        prev.next = current.next
 
     def retrieve(self, key):
         '''
