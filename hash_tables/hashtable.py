@@ -213,7 +213,15 @@ class HashTable:
         Doubles(if load factor is greater than 0.7) or halves(if load factor is less than 0.2) the capacity of the hash table
         and rehash all key/value pairs.
         '''
-        pass
+        if not self.resized:
+            return
+
+        load_factor = self.size / self.capacity
+
+        if load_factor > 0.7:
+            self.resize()
+        elif load_factor < 0.2:
+            self.resize(False)
 
 
 if __name__ == "__main__":
