@@ -171,6 +171,22 @@ class TestHashTable(unittest.TestCase):
 
         self.assertTrue(len(ht.storage) == 16)
 
+        ht.insert("new_key-0", "val-0")
+        ht.insert("new_key-1", "val-1")
+        ht.insert("new_key-2", "val-2")
+        ht.insert("new_key-3", "val-3")
+        ht.insert("new_key-4", "val-4")
+        ht.insert("new_key-5", "val-5")
+        ht.insert("new_key-6", "val-6")
+        ht.insert("new_key-7", "val-7")
+        ht.insert("new_key-8", "val-8")
+        ht.insert("new_key-9", "val-9")
+        ht.insert("new_key-10", "val-10")
+        ht.insert("new_key-11", "val-11")
+        ht.insert("new_key-12", "val-12")
+
+        self.assertTrue(len(ht.storage) == 32)
+
         return_value = ht.retrieve("key-0")
         self.assertTrue(return_value == "val-0")
         return_value = ht.retrieve("key-1")
@@ -191,6 +207,27 @@ class TestHashTable(unittest.TestCase):
         self.assertTrue(return_value == "val-8")
         return_value = ht.retrieve("key-9")
         self.assertTrue(return_value == "val-9")
+
+        ht.remove("key-9")
+        ht.remove("key-8")
+        ht.remove("key-7")
+        ht.remove("key-6")
+        ht.remove("key-5")
+        ht.remove("key-4")
+        ht.remove("key-3")
+        ht.remove("key-2")
+        ht.remove("key-1")
+        ht.remove("key-0")
+        ht.remove("new_key-0")
+        ht.remove("new_key-1")
+        ht.remove("new_key-2")
+        ht.remove("new_key-3")
+        ht.remove("new_key-4")
+        ht.remove("new_key-5")
+        ht.remove("new_key-6")
+        ht.remove("new_key-7")
+
+        self.assertTrue(len(ht.storage) == 16)
 
 
 if __name__ == '__main__':
