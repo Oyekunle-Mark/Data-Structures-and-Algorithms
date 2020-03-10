@@ -19,8 +19,6 @@ class HashTable:
     def __init__(self, capacity):
         self.capacity = capacity  # Number of buckets in the hash table
         self.storage = [None] * capacity
-        self.size = 0  # the number of key/value pair
-        self.resized = False  # has the hash table been resized or not?
 
     def _hash(self, key):
         '''
@@ -36,19 +34,14 @@ class HashTable:
 
         OPTIONAL STRETCH: Research and implement DJB2
         '''
-        hash = 5381
-
-        for x in key:
-            hash = ((hash << 5) + hash) + ord(x)
-
-        return hash
+        pass
 
     def _hash_mod(self, key):
         '''
         Take an arbitrary key and return a valid integer index
         within the storage capacity of the hash table.
         '''
-        return self._hash_djb2(key) % self.capacity
+        return self._hash(key) % self.capacity
 
     def insert(self, key, value):
         '''
@@ -93,10 +86,6 @@ class HashTable:
 
             # point the tail's next to the new node
             current.next = new_node
-        # increment the size
-        self.size += 1
-        # shrink or grow appropriately
-        self.shrink_or_grow()
 
     def remove(self, key):
         '''
@@ -126,6 +115,8 @@ class HashTable:
                 if current.next is None:
                     # set the current index of storage to None
                     self.storage[index] = None
+                    # return
+                    return
                 # otherwise,
                 else:
                     # point the current index of storage to the next item after the head
@@ -148,11 +139,6 @@ class HashTable:
                     else:
                         # point previous node's next to the current node's next
                         prev.next = current.next
-
-        # decrement the size
-        self.size -= 1
-        # shrink or grow appropriately
-        self.shrink_or_grow()
 
     def retrieve(self, key):
         '''
@@ -187,20 +173,15 @@ class HashTable:
             # return None if no key matches key
             return None
 
-    def resize(self, grow=True):
+    def resize(self):
         '''
         Doubles the capacity of the hash table and
         rehash all key/value pairs.
 
         Fill this in.
         '''
-        if grow:
-            # double the capacity
-            self.capacity *= 2
-        else:
-            # Halve the capacity
-            new_capacity = self.capacity // 2
-            self.capacity = new_capacity
+        # double the capacity
+        self.capacity *= 2
         # grab a pointer to the old store
         old_store = self.storage
         # point the storage to a new list of twice the size of the old
@@ -219,24 +200,6 @@ class HashTable:
                     self.insert(current.key, current.value)
                     # move current to the next node
                     current = current.next
-
-        # set the resized attribute to True
-        self.resized = True
-
-    def shrink_or_grow(self):
-        '''
-        Doubles(if load factor is greater than 0.7) or halves(if load factor is less than 0.2) the capacity of the hash table
-        and rehash all key/value pairs.
-        '''
-        if not self.resized:
-            return
-
-        load_factor = self.size / self.capacity
-
-        if load_factor > 0.7:
-            self.resize()
-        elif load_factor < 0.2:
-            self.resize(False)
 
 
 if __name__ == "__main__":
