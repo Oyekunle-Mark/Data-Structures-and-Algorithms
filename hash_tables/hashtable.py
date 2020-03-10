@@ -124,8 +124,6 @@ class HashTable:
                 if current.next is None:
                     # set the current index of storage to None
                     self.storage[index] = None
-                    # return
-                    return
                 # otherwise,
                 else:
                     # point the current index of storage to the next item after the head
@@ -148,6 +146,9 @@ class HashTable:
                     else:
                         # point previous node's next to the current node's next
                         prev.next = current.next
+
+        # decrement the size
+        self.size -= 1
 
     def retrieve(self, key):
         '''
