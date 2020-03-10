@@ -220,6 +220,9 @@ class HashTable:
                     # move current to the next node
                     current = current.next
 
+        # set the resized attribute to True
+        self.resized = True
+
     def shrink_or_grow(self):
         '''
         Doubles(if load factor is greater than 0.7) or halves(if load factor is less than 0.2) the capacity of the hash table
