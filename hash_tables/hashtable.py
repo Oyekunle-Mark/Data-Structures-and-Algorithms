@@ -180,15 +180,25 @@ class HashTable:
 
         Fill this in.
         '''
+        # double the capacity
         self.capacity *= 2
+        # grab a pointer to the old store
         old_store = self.storage
+        # point the storage to a new list of twice the size of the old
         self.storage = [None] * self.capacity
 
+        # loop through every item in old_store
         for item in old_store:
+            # of item is not None
             if item is not None:
+                # point current to the head
                 current = item
+
+                # loop while there is a node
                 while current:
+                    # insert the current's node key, value pair into the storage
                     self.insert(current.key, current.value)
+                    # move current to the next node
                     current = current.next
 
 
