@@ -94,15 +94,26 @@ class HashTable:
         # get the index
         index = self._hash_mod(key)
 
+        # if there is not item at the index
         if self.storage[index] is None:
+            # return  None
             return None
+        # otherwise,
         else:
+            # point current to the head
             current = self.storage[index]
+
+            # while current is not None
             while current:
+                # if the current's node key is equivalent to key
                 if current.key == key:
+                    # return the value
                     return current.value
 
+                # move current to the next node
                 current = current.next
+
+            # return None if no key matches key
             return None
 
     def resize(self):
