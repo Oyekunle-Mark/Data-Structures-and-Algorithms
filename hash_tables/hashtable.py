@@ -180,7 +180,16 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        self.capacity *= 2
+        old_store = self.storage
+        self.storage = [None] * self.capacity
+
+        for item in old_store:
+            if item is not None:
+                current = item
+                while current:
+                    self.insert(current.key, current.value)
+                    current = current.next
 
 
 if __name__ == "__main__":
