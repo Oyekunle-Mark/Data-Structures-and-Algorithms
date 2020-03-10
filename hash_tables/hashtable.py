@@ -151,7 +151,7 @@ class HashTable:
                         # point previous node's next to the current node's next
                         prev.next = current.next
 
-    def retrieve(self, key):
+    def retrieve(self, key: Any) -> Any:
         '''
         Retrieve the value stored with the given key.
 
