@@ -67,6 +67,8 @@ class HashTable:
         if self.storage[index] is None:
             # place the new node
             self.storage[index] = new_node
+            # increment the size
+            self.size += 1
         # otherwise,
         else:
             # point current to the head
@@ -76,6 +78,8 @@ class HashTable:
             if current.key == key:
                 # update the value with value
                 current.value = value
+                # increment the size
+                self.size += 1
                 # return
                 return
 
@@ -88,11 +92,15 @@ class HashTable:
                 if current.key == key:
                     # update the value with value
                     current.value = value
+                    # increment the size
+                    self.size += 1
                     # return
                     return
 
             # point the tail's next to the new node
             current.next = new_node
+            # increment the size
+            self.size += 1
 
     def remove(self, key):
         '''
