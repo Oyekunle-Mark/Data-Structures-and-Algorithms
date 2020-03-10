@@ -1,6 +1,7 @@
 # '''
 # Linked List hash table key/value pair
 # '''
+from typing import Any
 
 
 class LinkedPair:
@@ -16,11 +17,11 @@ class HashTable:
     that accepts string keys
     '''
 
-    def __init__(self, capacity):
+    def __init__(self, capacity: int):
         self.capacity = capacity  # Number of buckets in the hash table
         self.storage = [None] * capacity
 
-    def _hash(self, key):
+    def _hash(self, key: Any):
         '''
         Hash an arbitrary key and return an integer.
 
@@ -28,7 +29,7 @@ class HashTable:
         '''
         return hash(key)
 
-    def _hash_djb2(self, key):
+    def _hash_djb2(self, key: Any):
         '''
         Hash an arbitrary key using DJB2 hash
 
@@ -46,7 +47,7 @@ class HashTable:
         # return hash and bitwise and the hexadecimal constant 0xFFFFFFFF
         return hash & 0xFFFFFFFF
 
-    def _hash_mod(self, key):
+    def _hash_mod(self, key: Any) -> int:
         '''
         Take an arbitrary key and return a valid integer index
         within the storage capacity of the hash table.
