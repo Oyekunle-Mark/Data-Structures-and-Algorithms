@@ -184,7 +184,7 @@ class HashTable:
             # return None if no key matches key
             return None
 
-    def resize(self):
+    def resize(self) -> None:
         '''
         Doubles the capacity of the hash table and
         rehash all key/value pairs.
