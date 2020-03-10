@@ -95,6 +95,8 @@ class HashTable:
             current.next = new_node
         # increment the size
         self.size += 1
+        # shrink or grow appropriately
+        self.shrink_or_grow()
 
     def remove(self, key):
         '''
@@ -149,6 +151,8 @@ class HashTable:
 
         # decrement the size
         self.size -= 1
+        # shrink or grow appropriately
+        self.shrink_or_grow()
 
     def retrieve(self, key):
         '''
