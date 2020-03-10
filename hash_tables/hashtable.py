@@ -19,6 +19,8 @@ class HashTable:
     def __init__(self, capacity):
         self.capacity = capacity  # Number of buckets in the hash table
         self.storage = [None] * capacity
+        self.size = 0  # the number of key/value pair
+        self.resized = False  # has the hash table been resized or not?
 
     def _hash(self, key):
         '''
