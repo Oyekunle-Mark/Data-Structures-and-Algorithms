@@ -206,6 +206,13 @@ class HashTable:
                     # move current to the next node
                     current = current.next
 
+    def shrink_or_grow(self):
+        '''
+        Doubles(if load factor is greater than 0.7) or halves(if load factor is less than 0.2) the capacity of the hash table
+        and rehash all key/value pairs.
+        '''
+        pass
+
 
 if __name__ == "__main__":
     ht = HashTable(2)
