@@ -65,10 +65,18 @@ class HashTable:
             # point current to the head
             current = self.storage[index]
 
+            if current.key == key:
+                current.value = value
+                return
+
             # loop while current's next is not None
             while current.next:
                 # move current to the next node
                 current = current.next
+
+                if current.key == key:
+                    current.value = value
+                    return
 
             # point the tail's next to the new node
             current.next = new_node
