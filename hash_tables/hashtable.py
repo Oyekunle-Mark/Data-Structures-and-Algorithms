@@ -51,7 +51,16 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+        new_node = LinkedPair(key, value)
+
+        if self.storage[index] is None:
+            self.storage[index] = new_node
+        else:
+            current = self.storage[index]
+            while current:
+                current = current.next
+            current = new_node
 
     def remove(self, key):
         '''
