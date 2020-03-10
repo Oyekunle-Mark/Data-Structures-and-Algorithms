@@ -80,7 +80,18 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+
+        if self.storage[index] is None:
+            return None
+        else:
+            current = self.storage[index]
+            while current:
+                if current.key == key:
+                    return current.value
+
+                current = current.next
+            return None
 
     def resize(self):
         '''
