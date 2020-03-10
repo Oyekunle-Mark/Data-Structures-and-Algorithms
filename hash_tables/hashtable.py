@@ -180,15 +180,20 @@ class HashTable:
             # return None if no key matches key
             return None
 
-    def resize(self):
+    def resize(self, grow=True):
         '''
         Doubles the capacity of the hash table and
         rehash all key/value pairs.
 
         Fill this in.
         '''
-        # double the capacity
-        self.capacity *= 2
+        if grow:
+            # double the capacity
+            self.capacity *= 2
+        else:
+            # Halve the capacity
+            new_capacity = self.capacity // 2
+            self.capacity = new_capacity
         # grab a pointer to the old store
         old_store = self.storage
         # point the storage to a new list of twice the size of the old
