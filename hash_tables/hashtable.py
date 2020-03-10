@@ -58,9 +58,9 @@ class HashTable:
             self.storage[index] = new_node
         else:
             current = self.storage[index]
-            while current:
+            while current.next:
                 current = current.next
-            current = new_node
+            current.next = new_node
 
     def remove(self, key):
         '''
