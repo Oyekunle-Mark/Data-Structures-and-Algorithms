@@ -81,7 +81,9 @@ if __name__ == '__main__':
         # When found, POST it to the server {"proof": new_proof, "id": id}
         post_data = {"proof": new_proof, "id": id}
 
+        # send the proof to the blockchain server
         r = requests.post(url=node + "/mine", json=post_data)
+        # get the response from the server
         data = r.json()
 
         # TODO: If the server responds with a 'message' 'New Block Forged'
@@ -93,4 +95,5 @@ if __name__ == '__main__':
         else:
             print(data["message"])
 
+        # print the amount of coins
         print(f"You have {coins} coin[s]")
