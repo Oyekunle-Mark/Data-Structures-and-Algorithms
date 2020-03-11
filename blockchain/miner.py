@@ -67,7 +67,13 @@ if __name__ == '__main__':
             break
 
         # TODO: Get the block from `data` and use it to look for a new proof
-        # new_proof = ???
+        last_block = data["last_block"]
+
+        # print message to inform that miner is finding proof
+        print("Finding proof...")
+        new_proof = proof_of_work(last_block)
+        # print message to inform that miner has found proof
+        print("Proof found.")
 
         # When found, POST it to the server {"proof": new_proof, "id": id}
         post_data = {"proof": new_proof, "id": id}
