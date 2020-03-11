@@ -17,7 +17,7 @@ class Blockchain(object):
         # Create the genesis block
         self.new_block(previous_hash=1, proof=100)
 
-    def new_block(self, proof, previous_hash=None):
+    def new_block(self, proof: int, previous_hash=None) -> BlockType:
         """
         Create a new Block in the Blockchain
 
