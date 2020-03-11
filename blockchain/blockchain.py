@@ -104,8 +104,12 @@ class Blockchain(object):
         :return: True if the resulting hash is a valid proof, False otherwise
         """
         # TODO
-        pass
-        # return True or False
+        # set a initial guess concatenates block string and proof then encode them
+        guess = f"{block_string}{proof}".encode()
+        # create a guess hash and hexdigest it
+        guess_hash = hashlib.sha256(guess).hexdigest()
+        # then return True if the guess hash has the valid number of leading zeros otherwise return False
+        return guess_hash[:3] == "000"
 
 
 # Instantiate our Node
