@@ -48,7 +48,7 @@ class Blockchain(object):
         # Return the new block
         return block
 
-    def hash(self, block):
+    def hash(self, block: BlockType) -> str:
         """
         Creates a SHA-256 hash of a Block
 
