@@ -158,6 +158,13 @@ def mine():
 
     is_valid = blockchain.valid_proof(last_block, proof)
 
+    if is_valid:
+        blockchain.new_block(proof)
+
+        return jsonify({"message": "success"}), 201
+    else:
+        return jsonify({"message": "failure"}), 200
+
 
 @app.route('/chain', methods=['GET'])
 def full_chain():
