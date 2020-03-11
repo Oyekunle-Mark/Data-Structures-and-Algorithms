@@ -131,11 +131,16 @@ def mine():
     # verify if the proof sent is valid
     is_valid = blockchain.valid_proof(last_block, proof)
 
+    # if proof is valid
     if is_valid:
+        # make a new block
         blockchain.new_block(proof)
 
+        # return a message to the miner
         return jsonify({"message": "New Block Forged"}), 201
+    # otherwise
     else:
+        # send a message that the proof is not valid
         return jsonify({"message": "Invalid proof."}), 200
 
 
