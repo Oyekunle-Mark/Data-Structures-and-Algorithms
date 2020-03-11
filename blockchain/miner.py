@@ -13,7 +13,14 @@ def proof_of_work(block):
     in an effort to find a number that is a valid proof
     :return: A valid proof for the provided block
     """
-    pass
+    block_string = json.dumps(block, sort_keys=True)
+    proof = 0
+
+    # loop while the return from a call to valid proof is False
+    while valid_proof(block_string, proof) is False:
+        proof += 1
+
+    return proof
 
 
 def valid_proof(block_string, proof):
