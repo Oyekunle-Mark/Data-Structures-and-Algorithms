@@ -79,7 +79,7 @@ class Blockchain(object):
         return hashlib.sha256(block_string).hexdigest()
 
     @property
-    def last_block(self):
+    def last_block(self) -> int:
         return self.chain[-1]
 
     @staticmethod
