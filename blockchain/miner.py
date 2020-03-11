@@ -8,7 +8,7 @@ from typing import NewType, Dict, Any
 BlockType = NewType('BlockType', Dict[str, Any])
 
 
-def proof_of_work(block):
+def proof_of_work(block: BlockType) -> int:
     """
     Simple Proof of Work Algorithm
     Stringify the block and look for a proof.
