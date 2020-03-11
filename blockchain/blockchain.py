@@ -131,17 +131,32 @@ blockchain = Blockchain()
 
 @app.route('/mine', methods=['POST'])
 def mine():
-    # Run the proof of work algorithm to get the next proof
-    proof = blockchain.proof_of_work()
-    # Forge the new Block by adding it to the chain with the proof
-    previous_hash = blockchain.hash(blockchain.last_block)
-    block = blockchain.new_block(proof, previous_hash)
+    # # Run the proof of work algorithm to get the next proof
+    # proof = blockchain.proof_of_work()
+    # # Forge the new Block by adding it to the chain with the proof
+    # previous_hash = blockchain.hash(blockchain.last_block)
+    # block = blockchain.new_block(proof, previous_hash)
 
-    response = {
-        "block": block
-    }
+    # response = {
+    #     "block": block
+    # }
 
-    return jsonify(response), 200
+    # return jsonify(response), 200
+
+    data = request.get_json()
+    proof = data["proof"]
+    id = data["id"]
+
+    if not id or not proof:
+        response = {
+            "message": "proof and id must be sent when mining"
+        }
+
+        return jsonify(response), 400
+
+    last_block = blockchain.last_block
+
+    is_valid = blockchain.valid_proof(last_block, proof)
 
 
 @app.route('/chain', methods=['GET'])
