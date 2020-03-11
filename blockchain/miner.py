@@ -48,7 +48,7 @@ if __name__ == '__main__':
         node = "http://localhost:5000"
 
     # Load ID
-    f = open("my_id.txt", "r")
+    f = open("miner_id.txt", "r")
     id = f.read()
     print("ID is", id)
     f.close()
@@ -56,6 +56,7 @@ if __name__ == '__main__':
     # Run forever until interrupted
     while True:
         r = requests.get(url=node + "/last_block")
+
         # Handle non-json response
         try:
             data = r.json()
