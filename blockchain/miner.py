@@ -3,6 +3,9 @@ import requests
 
 import sys
 import json
+from typing import NewType, Dict, Any
+
+BlockType = NewType('BlockType', Dict[str, Any])
 
 
 def proof_of_work(block):
