@@ -145,12 +145,12 @@ def mine():
 
     data = request.get_json()
 
-    if not data.get("proof") or not data.get("id"):
-        response = {
-            "message": "proof and id must be sent when mining"
-        }
-
-        return jsonify(response), 400
+    # check that proof and id are present in the data
+    if not data.get("id") or not data.get("proof"):
+        # if not return a 400 with a message
+        return jsonify({
+            "message": "Request body must have id and proof"
+        }), 400
 
     proof = data["proof"]
     id = data["id"]
