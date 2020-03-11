@@ -26,7 +26,7 @@ def proof_of_work(block: BlockType) -> int:
     return proof
 
 
-def valid_proof(block_string, proof):
+def valid_proof(block_string: str, proof: int) -> bool:
     """
     Validates the Proof:  Does hash(block_string, proof) contain 6
     leading zeroes?  Return true if the proof is valid
