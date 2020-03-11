@@ -161,9 +161,9 @@ def mine():
     if is_valid:
         blockchain.new_block(proof)
 
-        return jsonify({"message": "success"}), 201
+        return jsonify({"message": "New Block Forged"}), 201
     else:
-        return jsonify({"message": "failure"}), 200
+        return jsonify({"message": "Invalid proof."}), 200
 
 
 @app.route('/chain', methods=['GET'])
