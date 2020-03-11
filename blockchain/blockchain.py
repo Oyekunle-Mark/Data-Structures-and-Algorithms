@@ -144,15 +144,16 @@ def mine():
     # return jsonify(response), 200
 
     data = request.get_json()
-    proof = data["proof"]
-    id = data["id"]
 
-    if not id or not proof:
+    if not data.get("proof") or not data.get("id"):
         response = {
             "message": "proof and id must be sent when mining"
         }
 
         return jsonify(response), 400
+
+    proof = data["proof"]
+    id = data["id"]
 
     # get the last block
     last_block = blockchain.last_block

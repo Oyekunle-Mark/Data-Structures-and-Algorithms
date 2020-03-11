@@ -79,7 +79,7 @@ if __name__ == '__main__':
         print("Proof found.")
 
         # When found, POST it to the server {"proof": new_proof, "id": id}
-        post_data = {"proof": new_proof, "id": id}
+        post_data = {"proof": new_proof, "ids": id}
 
         r = requests.post(url=node + "/mine", json=post_data)
         data = r.json()
