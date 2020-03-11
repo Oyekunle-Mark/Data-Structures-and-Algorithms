@@ -4,6 +4,9 @@ from time import time
 from uuid import uuid4
 
 from flask import Flask, jsonify, request
+from typing import NewType, Dict, Any
+
+BlockType = NewType('BlockType', Dict[str, Any])
 
 
 class Blockchain(object):
