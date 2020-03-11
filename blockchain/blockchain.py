@@ -154,8 +154,11 @@ def mine():
 
         return jsonify(response), 400
 
+    # get the last block
     last_block = blockchain.last_block
-
+    # stringify it and sort the keys
+    last_block = json.dumps(last_block, sort_keys=True)
+    # verify if the proof sent is valid
     is_valid = blockchain.valid_proof(last_block, proof)
 
     if is_valid:
