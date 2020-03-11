@@ -88,8 +88,15 @@ class Blockchain(object):
         :return: A valid proof for the provided block
         """
         # TODO
-        pass
+        block_string = json.dumps(block, sort_keys=True)
+        proof = 0
+
+        # loop while the return from a call to valid proof is False
+        while self.valid_proof(block_string, proof) is False:
+            proof += 1
         # return proof
+
+        return proof
 
     @staticmethod
     def valid_proof(block_string, proof):
