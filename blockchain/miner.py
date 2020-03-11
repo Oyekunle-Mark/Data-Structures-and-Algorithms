@@ -47,6 +47,9 @@ if __name__ == '__main__':
     else:
         node = "http://localhost:5000"
 
+    # the coin count
+    coins = 0
+
     # Load ID
     f = open("miner_id.txt", "r")
     id = f.read()
@@ -84,4 +87,10 @@ if __name__ == '__main__':
         # TODO: If the server responds with a 'message' 'New Block Forged'
         # add 1 to the number of coins mined and print it.  Otherwise,
         # print the message from the server.
-        pass
+        if data["message"] == "New Block Forged":
+            coins += 1
+            print("New block forged")
+        else:
+            print(data["message"])
+
+        print(f"You have {coins} coin[s]")
