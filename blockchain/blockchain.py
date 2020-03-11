@@ -79,25 +79,6 @@ class Blockchain(object):
     def last_block(self):
         return self.chain[-1]
 
-    # def proof_of_work(self, block):
-    #     """
-    #     Simple Proof of Work Algorithm
-    #     Stringify the block and look for a proof.
-    #     Loop through possibilities, checking each one against `valid_proof`
-    #     in an effort to find a number that is a valid proof
-    #     :return: A valid proof for the provided block
-    #     """
-    #     # TODO
-    #     block_string = json.dumps(block, sort_keys=True)
-    #     proof = 0
-
-    #     # loop while the return from a call to valid proof is False
-    #     while self.valid_proof(block_string, proof) is False:
-    #         proof += 1
-    #     # return proof
-
-    #     return proof
-
     @staticmethod
     def valid_proof(block_string, proof):
         """
@@ -131,18 +112,6 @@ blockchain = Blockchain()
 
 @app.route('/mine', methods=['POST'])
 def mine():
-    # # Run the proof of work algorithm to get the next proof
-    # proof = blockchain.proof_of_work()
-    # # Forge the new Block by adding it to the chain with the proof
-    # previous_hash = blockchain.hash(blockchain.last_block)
-    # block = blockchain.new_block(proof, previous_hash)
-
-    # response = {
-    #     "block": block
-    # }
-
-    # return jsonify(response), 200
-
     data = request.get_json()
 
     # check that proof and id are present in the data
