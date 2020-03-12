@@ -202,6 +202,13 @@ def new_transaction():
     if not all(k in data for k in required):
         return 'Missing Values', 400
 
+    # create a new transaction
+    index = blockchain.new_transaction(
+        data.get('sender'), data.get('recipient'), data.get('amount'))
+    response = {'message': f'Transaction will be added to Block {index}'}
+
+    return jsonify(response), 201
+
 
 # Run the program on port 5000
 if __name__ == '__main__':
