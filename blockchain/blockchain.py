@@ -143,7 +143,7 @@ def mine():
         blockchain.new_block(proof)
 
         # return a message to the miner
-        return jsonify({"message": "New Block Forged"}), 201
+        return jsonify({"message": "New Block Forged"}), 200
     # otherwise
     else:
         # send a message that the proof is not valid
