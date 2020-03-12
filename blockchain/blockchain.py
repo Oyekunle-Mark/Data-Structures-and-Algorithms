@@ -193,6 +193,11 @@ def get_last_block():
     }), 200
 
 
+@app.route('/transactions/new', methods=['POST'])
+def new_transaction():
+    pass
+
+
 # Run the program on port 5000
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
