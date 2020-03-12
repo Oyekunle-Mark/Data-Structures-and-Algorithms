@@ -163,10 +163,13 @@ def mine():
         # reward the miner for work so it can be part of the new block
         blockchain.new_transaction("0", id, 1)
         # make a new block
-        blockchain.new_block(proof)
+        new_block = blockchain.new_block(proof)
 
         # return a message to the miner
-        return jsonify({"message": "New Block Forged"}), 200
+        return jsonify({
+            "message": "New Block Forged",
+            "block": new_block
+        }), 200
     # otherwise
     else:
         # send a message that the proof is not valid

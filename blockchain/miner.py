@@ -101,6 +101,7 @@ if __name__ == '__main__':
         if data["message"] == "New Block Forged":
             coins += 1
             print("New block forged")
+            
         else:
             print(data["message"])
 
