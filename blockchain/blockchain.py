@@ -102,6 +102,9 @@ class Blockchain(object):
         # then return True if the guess hash has the valid number of leading zeros otherwise return False
         return guess_hash[:6] == "000000"
 
+    def new_transaction(self, sender, recipient, amount):
+        pass
+
 
 # Instantiate our Node
 app = Flask(__name__)
