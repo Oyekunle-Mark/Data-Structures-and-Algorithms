@@ -58,7 +58,7 @@ if __name__ == '__main__':
     # Load ID
     f = open("miner_id.txt", "r")
     id = f.read()
-    print("ID is", id)
+    print(f"* ID is {id} *\n")
     f.close()
 
     # Run forever until interrupted
