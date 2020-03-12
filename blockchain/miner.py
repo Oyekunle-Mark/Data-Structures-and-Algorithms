@@ -106,4 +106,4 @@ if __name__ == '__main__':
             print(data["message"])
 
         # print the amount of coins
-        print(f"=> You have {coins} coin[s] \n")
+        print(f" ::: You have {coins} coin[s] ::: \n")
