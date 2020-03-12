@@ -3,7 +3,9 @@ import requests
 
 import sys
 import json
+
 from typing import NewType, Dict, Any
+from pprint import pprint as pretty_log
 
 BlockType = NewType('BlockType', Dict[str, Any])
 
