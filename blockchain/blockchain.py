@@ -120,6 +120,13 @@ def mine():
     # require the proof and id to be present
     required = ['proof', 'id']
 
+    # if the values from data are not in required
+    if not all(k in data for k in required):
+        # then send a json message of missing values
+        response = {'message': "Missing Values"}
+        # return a 400 error
+        return jsonify(response), 400
+
     proof = data["proof"]
     id = data["id"]
 
