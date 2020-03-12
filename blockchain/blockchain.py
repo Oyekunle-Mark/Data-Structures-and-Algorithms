@@ -117,12 +117,8 @@ blockchain = Blockchain()
 def mine():
     data = request.get_json()
 
-    # check that proof and id are present in the data
-    if not data.get("id") or not data.get("proof"):
-        # if not return a 400 with a message
-        return jsonify({
-            "message": "Request body must have id and proof"
-        }), 400
+    # require the proof and id to be present
+    required = ['proof', 'id']
 
     proof = data["proof"]
     id = data["id"]
