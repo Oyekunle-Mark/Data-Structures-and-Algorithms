@@ -102,7 +102,7 @@ class Blockchain(object):
         # then return True if the guess hash has the valid number of leading zeros otherwise return False
         return guess_hash[:6] == "000000"
 
-    def new_transaction(self, sender, recipient, amount):
+    def new_transaction(self, sender: str, recipient: str, amount: int) -> int:
         """
         new_transaction that adds a new transaction to the list of transactions:
 
