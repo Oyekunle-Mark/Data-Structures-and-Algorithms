@@ -160,6 +160,8 @@ def mine():
 
     # if proof is valid
     if is_valid:
+        # reward the miner for work so it can be part of the new block
+        blockchain.new_transaction("0", id, 1)
         # make a new block
         blockchain.new_block(proof)
 
