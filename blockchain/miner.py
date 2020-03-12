@@ -86,6 +86,12 @@ if __name__ == '__main__':
 
         # send the proof to the blockchain server
         r = requests.post(url=node + "/mine", json=post_data)
+
+        if r.status_code == 400:
+            print("Post data to blockchain must contain proof and id")
+            print(r)
+            break
+
         # get the response from the server
         data = r.json()
 
