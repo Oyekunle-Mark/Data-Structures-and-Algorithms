@@ -195,7 +195,12 @@ def get_last_block():
 
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
-    pass
+    data = request.get_json()
+
+    required = ['sender', 'recipient', 'amount']
+
+    if not all(k in data for k in required):
+        return 'Missing Values', 400
 
 
 # Run the program on port 5000
