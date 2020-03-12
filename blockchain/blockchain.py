@@ -79,7 +79,7 @@ class Blockchain(object):
         return hashlib.sha256(block_string).hexdigest()
 
     @property
-    def last_block(self) -> int:
+    def last_block(self) -> BlockType:
         return self.chain[-1]
 
     @staticmethod
@@ -113,9 +113,9 @@ class Blockchain(object):
         """
         # create the transaction
         transaction = {
-            sender: sender,
-            recipient: recipient,
-            amount: amount
+            "sender": sender,
+            "recipient": recipient,
+            "amount": amount
         }
         # add the transaction to the current_transactions
         self.current_transactions.append(transaction)
