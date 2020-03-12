@@ -111,7 +111,17 @@ class Blockchain(object):
         :param amount: <int> Amount
         :return: <int> The index of the `block` that will hold this transaction
         """
-        pass
+        # create the transaction
+        transaction = {
+            sender: sender,
+            recipient: recipient,
+            amount: amount
+        }
+        # add the transaction to the current_transactions
+        self.current_transactions.append(transaction)
+
+        # return the number of the `block` that will hold this transaction
+        return len(self.chain) + 1
 
 
 # Instantiate our Node
