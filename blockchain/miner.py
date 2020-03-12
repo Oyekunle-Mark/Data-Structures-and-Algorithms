@@ -100,10 +100,10 @@ if __name__ == '__main__':
         # print the message from the server.
         if data["message"] == "New Block Forged":
             coins += 1
-            print("New block forged")
-            print("Block: ", data["block"])
+            print(" ::: New block forged ::: \n")
+            print("Block: ", data["block"], "\n")
         else:
             print(data["message"])
 
         # print the amount of coins
-        print(f"You have {coins} coin[s]")
+        print(f"=> You have {coins} coin[s] \n")
