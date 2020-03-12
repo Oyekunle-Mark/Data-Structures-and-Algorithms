@@ -76,10 +76,10 @@ if __name__ == '__main__':
         last_block = data["last_block"]
 
         # print message to inform that miner is finding proof
-        print("Finding proof...")
+        print("=> Finding proof...")
         new_proof = proof_of_work(last_block)
         # print message to inform that miner has found proof
-        print("Proof found.")
+        print("=> Proof found.\n")
 
         # When found, POST it to the server {"proof": new_proof, "id": id}
         post_data = {"proof": new_proof, "id": id}
