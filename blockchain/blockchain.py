@@ -103,6 +103,14 @@ class Blockchain(object):
         return guess_hash[:6] == "000000"
 
     def new_transaction(self, sender, recipient, amount):
+        """
+        new_transaction that adds a new transaction to the list of transactions:
+
+        :param sender: <str> Address of the Recipient
+        :param recipient: <str> Address of the Recipient
+        :param amount: <int> Amount
+        :return: <int> The index of the `block` that will hold this transaction
+        """
         pass
 
 
