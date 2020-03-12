@@ -103,7 +103,9 @@ if __name__ == '__main__':
         if data["message"] == "New Block Forged":
             coins += 1
             print(" ::: New block forged ::: \n")
-            print("Block: ", data["block"], "\n")
+            # pretty print the block
+            pretty_log(data["block"])
+            print()
         else:
             print(data["message"])
 
