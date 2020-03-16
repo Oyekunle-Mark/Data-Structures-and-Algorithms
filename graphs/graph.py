@@ -161,7 +161,7 @@ class Graph(Generic[T]):
                     # enqueue the new_path onto the queue
                     queue.enqueue(new_path)
 
-    def dfs(self, starting_vertex, destination_vertex):
+    def dfs(self, starting_vertex: T, destination_vertex: T) -> PathType:
         """
         Return a list containing a path from
         starting_vertex to destination_vertex in
@@ -200,7 +200,7 @@ class Graph(Generic[T]):
                     # push the new path onto the stack
                     stack.push(new_path)
 
-    def dfs_recursive(self, starting_vertex, destination_vertex):
+    def dfs_recursive(self, starting_vertex: T, destination_vertex: T) -> PathType:
         """
         Return a list containing a path from
         starting_vertex to destination_vertex in
