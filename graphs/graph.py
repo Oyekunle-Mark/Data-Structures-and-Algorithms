@@ -1,7 +1,7 @@
 """
 Simple graph implementation
 """
-from typing import TypeVar, Generic
+from typing import TypeVar, Generic, Set
 from utils import Stack, Queue
 
 T = TypeVar('T')
@@ -30,7 +30,7 @@ class Graph(Generic[T]):
 
         self.vertices[v1].add(v2)
 
-    def get_neighbors(self, vertex_id):
+    def get_neighbors(self, vertex_id) -> Set[T]:
         """
         Get all neighbors (edges) of a vertex.
         """
