@@ -1,7 +1,10 @@
 """
 Simple graph implementation
 """
+from typing import TypeVar, Generic
 from utils import Stack, Queue
+
+T = TypeVar('T')
 
 
 class Graph:
