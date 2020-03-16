@@ -24,18 +24,18 @@ class Stack(Generic[T]):
 # A sub-optimal Queue class implementation.
 # the class uses a list for storage and pops from the front of the list
 # this happens in constant time
-class Queue():
+class Queue(Generic[T]):
     def __init__(self):
         self.queue = []
 
-    def enqueue(self, value):
+    def enqueue(self, value: T):
         self.queue.append(value)
 
-    def dequeue(self):
+    def dequeue(self) -> ReturnedType:
         if self.size() > 0:
             return self.queue.pop(0)
         else:
             return None
 
-    def size(self):
+    def size(self) -> int:
         return len(self.queue)
