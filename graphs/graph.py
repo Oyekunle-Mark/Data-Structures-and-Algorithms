@@ -7,14 +7,14 @@ from utils import Stack, Queue
 T = TypeVar('T')
 
 
-class Graph:
+class Graph(Generic[T]):
 
     """Represent a graph as a dictionary of vertices mapping labels to edges."""
 
     def __init__(self):
         self.vertices = {}
 
-    def add_vertex(self, vertex_id):
+    def add_vertex(self, vertex_id: T):
         """
         Add a vertex to the graph.
         """
