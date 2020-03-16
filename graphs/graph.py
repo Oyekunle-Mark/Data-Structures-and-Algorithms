@@ -101,14 +101,21 @@ class Graph:
 
         This should be done using recursion.
         """
+        # if visited is not set
         if visited is None:
+            # set it to empty set
             visited = set()
 
+        # add current vertex to visited
         visited.add(starting_vertex)
+        # print the vertex
         print(starting_vertex)
 
+        # for every neighbors of current vertex
         for vertex in self.vertices[starting_vertex]:
+            # if not visited already
             if vertex not in visited:
+                # recursively call dft passing in the visited set
                 self.dft_recursive(vertex, visited)
 
     def bfs(self, starting_vertex, destination_vertex):
