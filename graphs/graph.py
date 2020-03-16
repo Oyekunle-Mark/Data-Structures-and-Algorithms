@@ -14,13 +14,13 @@ class Graph(Generic[T]):
     def __init__(self):
         self.vertices = {}
 
-    def add_vertex(self, vertex_id: T):
+    def add_vertex(self, vertex_id: T) -> None:
         """
         Add a vertex to the graph.
         """
         self.vertices[vertex_id] = set()
 
-    def add_edge(self, v1, v2):
+    def add_edge(self, v1: T, v2: T) -> None:
         """
         Add a directed edge to the graph.
         """
