@@ -1,22 +1,23 @@
-from typing import TypeVar, Generic
+from typing import TypeVar, Generic, Union
 
 T = TypeVar('T')
+ReturnedType = Union[T, None]
 
 
 class Stack(Generic[T]):
     def __init__(self):
         self.stack = []
 
-    def push(self, value):
+    def push(self, value: T):
         self.stack.append(value)
 
-    def pop(self):
+    def pop(self) -> ReturnedType:
         if self.size() > 0:
             return self.stack.pop()
         else:
             return None
 
-    def size(self):
+    def size(self) -> int:
         return len(self.stack)
 
 
