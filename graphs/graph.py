@@ -1,8 +1,7 @@
 """
 Simple graph implementation
 """
-from utils import Stack
-from collections import deque
+from utils import Stack, Queue
 
 
 class Graph:
@@ -43,18 +42,18 @@ class Graph:
         beginning from starting_vertex.
         """
         visited = set()
-        d = deque()
-        d.appendright(starting_vertex)
+        queue = Queue()
+        queue.enqueue(starting_vertex)
 
-        while len(d):
-            current_vertex = d.popleft()
+        while queue.size():
+            current_vertex = queue.dequeue()
 
             if current_vertex not in visited:
                 visited.add(current_vertex)
                 print(current_vertex)
 
                 for vertex in self.vertices[current_vertex]:
-                    d.enqueue(vertex)
+                    queue.enqueue(vertex)
 
     def dft(self, starting_vertex):
         """
