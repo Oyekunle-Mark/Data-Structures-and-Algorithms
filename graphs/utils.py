@@ -16,6 +16,8 @@ class Stack():
 
 
 # A sub-optimal Queue class implementation.
+# the class uses a list for storage and pops from the front of the list
+# this happens in constant time
 class Queue():
     def __init__(self):
         self.queue = []
