@@ -8,7 +8,7 @@ class Stack(Generic[T]):
     def __init__(self):
         self.stack = []
 
-    def push(self, value: T):
+    def push(self, value: T) -> None:
         self.stack.append(value)
 
     def pop(self) -> ReturnedType:
@@ -28,7 +28,7 @@ class Queue(Generic[T]):
     def __init__(self):
         self.queue = []
 
-    def enqueue(self, value: T):
+    def enqueue(self, value: T) -> None:
         self.queue.append(value)
 
     def dequeue(self) -> ReturnedType:
