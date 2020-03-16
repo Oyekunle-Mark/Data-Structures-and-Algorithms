@@ -1,7 +1,7 @@
 """
 Simple graph implementation
 """
-from typing import TypeVar, Generic, Set
+from typing import TypeVar, Generic, Set, Optional
 from utils import Stack, Queue
 
 T = TypeVar('T')
@@ -68,7 +68,7 @@ class Graph(Generic[T]):
                     # add it to the queue
                     queue.enqueue(vertex)
 
-    def dft(self, starting_vertex):
+    def dft(self, starting_vertex: T) -> None:
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
@@ -97,7 +97,7 @@ class Graph(Generic[T]):
                     # push it onto the stack
                     stack.push(vertex)
 
-    def dft_recursive(self, starting_vertex, visited=None):
+    def dft_recursive(self, starting_vertex: T, visited: Optional[Set[T]] = None) -> None:
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
