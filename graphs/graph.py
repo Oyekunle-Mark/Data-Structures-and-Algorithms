@@ -70,7 +70,29 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        # keep track of visited vertices
+        visited = set()
+        # create a queue class
+        queue = Queue()
+        # enqueue the starting vertex
+        queue.enqueue(starting_vertex)
+
+        # while queue is not empty
+        while queue.size():
+            # dequeue the queue
+            current_vertex = queue.dequeue()
+
+            # if current vertex has not been visited
+            if current_vertex not in visited:
+                # add ti to visited
+                visited.add(current_vertex)
+                # print the current vertex
+                print(current_vertex)
+
+                # for every neighbors of current_vertex
+                for vertex in self.vertices[current_vertex]:
+                    # add it to the queue
+                    queue.enqueue(vertex)
 
     def dft_recursive(self, starting_vertex):
         """
