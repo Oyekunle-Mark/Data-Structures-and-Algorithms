@@ -2,7 +2,7 @@
 Simple graph implementation
 """
 from utils import Stack
-from collections import dequeue
+from collections import deque
 
 
 class Graph:
