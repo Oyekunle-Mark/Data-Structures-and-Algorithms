@@ -39,7 +39,7 @@ class Graph(Generic[T]):
 
         return self.vertices[vertex_id]
 
-    def bft(self, starting_vertex):
+    def bft(self, starting_vertex: T) -> None:
         """
         Print each vertex in breadth-first order
         beginning from starting_vertex.
