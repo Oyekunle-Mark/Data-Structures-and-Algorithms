@@ -204,32 +204,51 @@ class Graph:
 
         This should be done using recursion.
         """
-        xpath = []
+        # would hold the found path to destination_vertex
+        correct_path = []
+        # holds the visited vertices
         visited = set()
+        # initialize the stack class
         stack = Stack()
+        # push the starting_vertex as a list
         stack.push([starting_vertex])
 
+        # the inner recursive function
         def recurse_dfs(starting_vertex, destination_vertex):
+            # pops off a path from the stack
             path = stack.pop()
+            # picks the last vertex from the path
             current_vert = path[-1]
 
+            # base case of current_vert is the destination_vertex
             if current_vert == destination_vertex:
-                nonlocal xpath
-                xpath = path
+                # assess the nonlocal correct_path
+                nonlocal correct_path
+                # point correct_path to the path
+                correct_path = path
+                # return from the recursive function
                 return
 
+            # for neighbors of current_vert
             for vertex in self.vertices[current_vert]:
+                # if vertex has not been visited
                 if vertex not in visited:
+                    # add it to visited visited
                     visited.add(vertex)
-
+                    # create a copy of path
                     new_path = list(path)
+                    # append the vert to the new path
                     new_path.append(vertex)
+                    # push the new path onto the stack
                     stack.push(new_path)
 
+                    # recursively call recurse_dfs with vertex as the starting_vertex
                     recurse_dfs(vertex, destination_vertex)
 
+        # call the recursive function
         recurse_dfs(starting_vertex, destination_vertex)
 
+        # return the path
         return xpath
 
 
