@@ -25,13 +25,17 @@ class Graph:
         if v1 in self.vertices and v2 in self.vertices:
             self.vertices[v1].add(v2)
         else:
-            raise IndexError("Both vertices must be in the graph")
+            raise IndexError(
+                f"Both {v1} and {v2} must be in the graph as vertices")
 
     def get_neighbors(self, vertex_id):
         """
         Get all neighbors (edges) of a vertex.
         """
-        pass  # TODO
+        if vertex_id in self.vertices:
+            return self.vertices[vertex_id]
+        else:
+            raise IndexError(f"Cannot find {vertex_id} in the graph")
 
     def bft(self, starting_vertex):
         """
