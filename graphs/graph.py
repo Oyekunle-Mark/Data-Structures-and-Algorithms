@@ -1,7 +1,8 @@
 """
 Simple graph implementation
 """
-from utils import Stack, Queue  # These may come in handy
+from utils import Stack
+from collections import dequeue
 
 
 class Graph:
