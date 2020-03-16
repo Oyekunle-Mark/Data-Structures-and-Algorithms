@@ -1,10 +1,11 @@
 """
 Simple graph implementation
 """
-from typing import TypeVar, Generic, Set, Optional
+from typing import TypeVar, Generic, Set, Optional, List
 from utils import Stack, Queue
 
 T = TypeVar('T')
+PathType = List[T]
 
 
 class Graph(Generic[T]):
@@ -121,7 +122,7 @@ class Graph(Generic[T]):
                 # recursively call dft passing in the visited set
                 self.dft_recursive(vertex, visited)
 
-    def bfs(self, starting_vertex, destination_vertex):
+    def bfs(self, starting_vertex: T, destination_vertex: T) -> PathType:
         """
         Return a list containing the shortest path from
         starting_vertex to destination_vertex in
