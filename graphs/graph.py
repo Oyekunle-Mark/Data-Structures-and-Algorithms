@@ -22,20 +22,20 @@ class Graph:
         """
         Add a directed edge to the graph.
         """
-        if v1 in self.vertices and v2 in self.vertices:
-            self.vertices[v1].add(v2)
-        else:
+        if v1 not in self.vertices or v2 not in self.vertices:
             raise IndexError(
                 f"Both {v1} and {v2} must be in the graph as vertices")
+
+        self.vertices[v1].add(v2)
 
     def get_neighbors(self, vertex_id):
         """
         Get all neighbors (edges) of a vertex.
         """
-        if vertex_id in self.vertices:
-            return self.vertices[vertex_id]
-        else:
+        if vertex_id not in self.vertices:
             raise IndexError(f"Cannot find {vertex_id} in the graph")
+
+        return self.vertices[vertex_id]
 
     def bft(self, starting_vertex):
         """
