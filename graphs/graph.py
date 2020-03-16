@@ -72,15 +72,15 @@ class Graph:
         """
         # keep track of visited vertices
         visited = set()
-        # create a queue class
-        queue = Queue()
+        # create a stack class
+        stack = Stack()
         # enqueue the starting vertex
-        queue.enqueue(starting_vertex)
+        stack.push(starting_vertex)
 
         # while queue is not empty
-        while queue.size():
+        while stack.size():
             # dequeue the queue
-            current_vertex = queue.dequeue()
+            current_vertex = stack.pop()
 
             # if current vertex has not been visited
             if current_vertex not in visited:
@@ -92,7 +92,7 @@ class Graph:
                 # for every neighbors of current_vertex
                 for vertex in self.vertices[current_vertex]:
                     # add it to the queue
-                    queue.enqueue(vertex)
+                    stack.push(vertex)
 
     def dft_recursive(self, starting_vertex):
         """
