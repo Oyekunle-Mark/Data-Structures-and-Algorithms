@@ -42,7 +42,19 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        visited = set()
+        d = deque()
+        d.appendright(starting_vertex)
+
+        while len(d):
+            current_vertex = d.popleft()
+
+            if current_vertex not in visited:
+                visited.add(current_vertex)
+                print(current_vertex)
+
+                for vertex in self.vertices[current_vertex]:
+                    d.enqueue(vertex)
 
     def dft(self, starting_vertex):
         """
