@@ -124,23 +124,37 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
+        # create the queue class
         queue = Queue()
+        # would hold the visited vertices
         visited = set()
+        # add the starting vertex as a list of vert
         queue.enqueue([starting_vertex])
 
+        # while the queue is not empty
         while queue.size():
+            # dequeue a path from the queue
             path = queue.dequeue()
+            # get the last vertex from the path
             current_vert = path[-1]
 
+            # if the current_vert is teh destination vert
             if current_vert == destination_vertex:
+                # return the path
                 return path
 
+            # if current_vert has not been visited
             if current_vert not in visited:
+                # add it to visited
                 visited.add(current_vert)
 
+                # for every neighbors of current_vert
                 for vertex in self.vertices[current_vert]:
+                    # create a copy of the path
                     new_path = list(path)
+                    # add the current vertex to the new path
                     new_path.append(vertex)
+                    # enqueue the new_path onto the queue
                     queue.enqueue(new_path)
 
     def dfs(self, starting_vertex, destination_vertex):
