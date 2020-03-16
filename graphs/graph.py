@@ -214,7 +214,7 @@ class Graph:
         stack.push([starting_vertex])
 
         # the inner recursive function
-        def recurse_dfs(starting_vertex, destination_vertex):
+        def inner_dfs_recursive(starting_vertex, destination_vertex):
             # pops off a path from the stack
             path = stack.pop()
             # picks the last vertex from the path
@@ -242,14 +242,14 @@ class Graph:
                     # push the new path onto the stack
                     stack.push(new_path)
 
-                    # recursively call recurse_dfs with vertex as the starting_vertex
-                    recurse_dfs(vertex, destination_vertex)
+                    # recursively call inner_dfs_recursive with vertex as the starting_vertex
+                    inner_dfs_recursive(vertex, destination_vertex)
 
         # call the recursive function
-        recurse_dfs(starting_vertex, destination_vertex)
+        inner_dfs_recursive(starting_vertex, destination_vertex)
 
         # return the path
-        return xpath
+        return correct_path
 
 
 if __name__ == '__main__':
