@@ -26,15 +26,27 @@ def find_neighbors(word):
     the generated word can be found in word_set. It returns all the possible neighbors
     as a list of strings
     """
+    # would hold the generated word neighbors
     neighbors = []
+
+    # for each character position in word
     for index in range(len(word)):
+        # convert the word to list as a new copy
         word_list = list(word)
+
+        # for every letter in the English alphabet
         for letter in LETTERS:
+            # replace the current index with current letter
             word_list[index] = letter
+            # join to form a new word
             new_word = ''.join(word_list)
+
+            # if the new word is not the input word and word is in word_set
             if new_word != word and new_word in word_set:
+                # add it to neighbors
                 neighbors.append(new_word)
 
+    # return neighbors
     return neighbors
 
 def word_ladder(beginWord, endWord):
