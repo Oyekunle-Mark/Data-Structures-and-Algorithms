@@ -1,3 +1,8 @@
+from typing import List, Tuple
+
+AncestorsType = List[Tuple[int, int]]
+
+
 def find_ancestor(ancestors, num):
     """
     Takes the ancestors list and a num and returns the first ancestor
