@@ -14,6 +14,11 @@ def find_ancestor(ancestors, num):
     return None
 
 def earliest_ancestor(ancestors, starting_node):
+    """
+    Finds the earliest ancestor of starting node. Works by performing
+    a BFS until the parent has no parent itself. If two parents are both the
+    earliest, the first(left most) is chosen because the graph has some form of order.
+    """
     farthest_ancestor = find_ancestor(ancestors, starting_node)
 
     if farthest_ancestor is None:
