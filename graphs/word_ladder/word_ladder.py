@@ -21,7 +21,8 @@ for word in words:
     word_set.add(word)
 
 # letters in the English alphabet
-LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+           'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
 def find_neighbors(word: str) -> NeighborsType:
@@ -53,6 +54,7 @@ def find_neighbors(word: str) -> NeighborsType:
 
     # return neighbors
     return neighbors
+
 
 def find_word_ladders(beginWord: str, endWord: str) -> WordPathType:
     """
