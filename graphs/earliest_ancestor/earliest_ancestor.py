@@ -1,8 +1,16 @@
 def find_ancestor(ancestors, num):
+    """
+    Takes the ancestors list and a num and returns the first ancestor
+    of num from the list of ancestors
+    """
+    # loop for every parent child
     for parent, child in ancestors:
+        # if the child is the same as num
         if child == num:
+            # then parent is found, return it
             return parent
 
+    # otherwise, no parent found, return None
     return None
 
 def earliest_ancestor(ancestors, starting_node):
