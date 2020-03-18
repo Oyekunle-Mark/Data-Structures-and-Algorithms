@@ -1,7 +1,9 @@
+from typing import List, Set
+
 from util import Queue
 
 # would hold the words
-word_set = set()
+word_set: Set[str] = set()
 # global variable to add words from file to
 words = []
 
