@@ -2,6 +2,8 @@ from typing import List, Set
 
 from util import Queue
 
+WordPathType = List[str]
+
 # would hold the words
 word_set: Set[str] = set()
 # global variable to add words from file to
@@ -21,7 +23,7 @@ for word in words:
 LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
-def find_neighbors(word):
+def find_neighbors(word: str) -> WordPathType:
     """
     Find all the possible neighbors of a word by replacing each letters 
     in the word with every letter in the English alphabet and confirming if
