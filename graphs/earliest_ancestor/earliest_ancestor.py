@@ -14,11 +14,9 @@ def earliest_ancestor(ancestors, starting_node):
     while True:
         if find_ancestor(ancestors, farthest_ancestor) is None:
             return farthest_ancestor
+
         farthest_ancestor = find_ancestor(ancestors, farthest_ancestor)
 
-        
-
-    return farthest_ancestor
 
 
 if __name__ == '__main__':
