@@ -68,7 +68,7 @@ def find_word_ladders(beginWord, endWord):
         if current_word not in visited:
             visited.add(current_word)
 
-            for word in find_neighbors(word):
+            for word in find_neighbors(current_word):
                 new_path = list(path)
                 new_path.append(word)
                 queue.enqueue(new_path)
