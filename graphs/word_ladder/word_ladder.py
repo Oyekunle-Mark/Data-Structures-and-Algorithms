@@ -54,25 +54,40 @@ def find_word_ladders(beginWord, endWord):
     Uses Breadth-First Search(BFS) to find the transformation sequence of a word
     from beginWord to endWord.
     """
+    # keep track of visited words
     visited = set()
+    # instantiate the queue class
     queue = Queue()
+    # enqueue the beginWord word as a list
     queue.enqueue([beginWord])
 
+    # loop while the queue is not empty
     while queue.size():
+        # dequeue the path from the queue
         path = queue.dequeue()
+        # grab the last word from the path
         current_word = path[-1]
 
+        # if current_word is the end_word
         if current_word == endWord:
+            # return the path
             return path
 
+        # if current_word has not been visited
         if current_word not in visited:
+            # mark it has visited
             visited.add(current_word)
 
+            # for every neighbors of current_word
             for word in find_neighbors(current_word):
+                # create a copy of the path
                 new_path = list(path)
+                # append the current word to the path
                 new_path.append(word)
+                # enqueue the new path
                 queue.enqueue(new_path)
 
+    # explicitly return None if path if found
     return None
 
 
