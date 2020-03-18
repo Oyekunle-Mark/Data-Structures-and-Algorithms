@@ -6,4 +6,9 @@ def find_ancestor(ancestors, num):
     return -1
 
 def earliest_ancestor(ancestors, starting_node):
-    pass
+    farthest_ancestor = find_ancestor(ancestors, starting_node)
+
+    while farthest_ancestor:
+        farthest_ancestor = find_ancestor(ancestors, farthest_ancestor)
+
+    return farthest_ancestor
