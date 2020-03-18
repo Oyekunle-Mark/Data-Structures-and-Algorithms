@@ -49,7 +49,7 @@ def find_neighbors(word):
     # return neighbors
     return neighbors
 
-def word_ladder(beginWord, endWord):
+def find_word_ladders(beginWord, endWord):
     """
     Uses Breadth-First Search(BFS) to find the transformation sequence of a word
     from beginWord to endWord.
@@ -74,3 +74,9 @@ def word_ladder(beginWord, endWord):
                 queue.enqueue(new_path)
 
     return None
+
+
+if __name__ == '__main__':
+    print(find_word_ladders("hit", "cog"))
+    print(find_word_ladders("sail", "boat"))
+    print(find_word_ladders("hungry", "happy"))
