@@ -3,7 +3,7 @@ from typing import List, Tuple
 AncestorsType = List[Tuple[int, int]]
 
 
-def find_ancestor(ancestors, num):
+def find_ancestor(ancestors: AncestorsType, num: int) -> int:
     """
     Takes the ancestors list and a num and returns the first ancestor
     of num from the list of ancestors
@@ -19,7 +19,7 @@ def find_ancestor(ancestors, num):
     return None
 
 
-def earliest_ancestor(ancestors, starting_node):
+def earliest_ancestor(ancestors: AncestorsType, starting_node: int) -> int:
     """
     Finds the earliest ancestor of starting node. Works by performing
     a BFS until the parent has no parent itself. If two parents are both the
