@@ -1,9 +1,9 @@
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 AncestorsType = List[Tuple[int, int]]
 
 
-def find_ancestor(ancestors: AncestorsType, num: int) -> int:
+def find_ancestor(ancestors: AncestorsType, num: int) -> Union[int, None]:
     """
     Takes the ancestors list and a num and returns the first ancestor
     of num from the list of ancestors
