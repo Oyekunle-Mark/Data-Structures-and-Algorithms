@@ -1,8 +1,9 @@
-from typing import List, Set
+from typing import List, Set, Union
 
 from util import Queue
 
-WordPathType = List[str]
+NeighborsType = List[str]
+WordPathType = Union[NeighborsType, None]
 
 # would hold the words
 word_set: Set[str] = set()
@@ -23,7 +24,7 @@ for word in words:
 LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
-def find_neighbors(word: str) -> WordPathType:
+def find_neighbors(word: str) -> NeighborsType:
     """
     Find all the possible neighbors of a word by replacing each letters 
     in the word with every letter in the English alphabet and confirming if
@@ -53,7 +54,7 @@ def find_neighbors(word: str) -> WordPathType:
     # return neighbors
     return neighbors
 
-def find_word_ladders(beginWord, endWord):
+def find_word_ladders(beginWord: str, endWord: str) -> WordPathType:
     """
     Uses Breadth-First Search(BFS) to find the transformation sequence of a word
     from beginWord to endWord.
