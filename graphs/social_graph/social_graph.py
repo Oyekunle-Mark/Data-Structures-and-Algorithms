@@ -101,7 +101,7 @@ class SocialGraph:
                 visited[current_user_id] = path
 
                 for id in self.friendships[current_user_id]:
-                    new_path = list[path]
+                    new_path = list(path)
                     new_path.append(id)
                     queue.enqueue(new_path)
 
