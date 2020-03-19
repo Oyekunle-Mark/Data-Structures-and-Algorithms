@@ -89,22 +89,35 @@ class SocialGraph:
 
         The key is the friend's ID and the value is the path.
         """
+        # keep track of visited
         visited = {}  # Note that this is a dictionary, not a set
+        # instantiate the queue class
         queue = Queue()
+        # enqueue the starting user_id as a list
         queue.enqueue([user_id])
 
+        # loop while queue is not empty
         while queue.size():
+            # dequeue a path from the queue
             path = queue.dequeue()
+            # grab the last user_id from the path
             current_user_id = path[-1]
 
+            # if current_user_id has not been visited
             if current_user_id not in visited:
+                # add it to visited as current_user_id as key and path as value
                 visited[current_user_id] = path
 
+                # for every friendships of the current_user_id
                 for id in self.friendships[current_user_id]:
+                    # create a copy of path
                     new_path = list(path)
+                    # append id to the new path
                     new_path.append(id)
+                    # enqueue the newly generated path
                     queue.enqueue(new_path)
 
+        # return visited
         return visited
 
 
